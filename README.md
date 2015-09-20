@@ -21,7 +21,6 @@
   * [Logical And Operator](https://dev.mysql.com/doc/refman/5.7/en/logical-operators.html#operator_and)
   * [Logical Or Operator](https://dev.mysql.com/doc/refman/5.7/en/logical-operators.html#operator_or)
   * [Like Operator](https://dev.mysql.com/doc/refman/5.7/en/string-comparison-functions.html#operator_like)
-  * [Between Operator](https://dev.mysql.com/doc/refman/5.7/en/comparison-operators.html#operator_between)
 
 ### Query Modifiers
 
