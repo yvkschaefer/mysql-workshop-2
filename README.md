@@ -92,7 +92,7 @@ mysql> source <filename>
 
 ### Exercise 10
 * How many Address Book Entries are not listed as ```other```?
-* How many Address Book Entries are listed as both ```home``` and ```work```?
+* How many Address Book Entries are listed as either ```home``` or ```work```?
 * How many Address Book Entries are listed as ```phones```?
 
 ### Exercise 11
