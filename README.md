@@ -1,6 +1,6 @@
 # MySQL Workshop 2 - Basic Data Manipulation
 
-<img src="http://cdn.meme.am/instances2/500x/1988002.jpg" border="0" width="850">
+<img src="http://cdn.meme.am/instances2/500x/1988011.jpg" border="0" width="850">
 
 ## Workshop Contents
 
