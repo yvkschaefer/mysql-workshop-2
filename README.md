@@ -46,65 +46,69 @@ mysql> source <filename>
     * The SQL Statement results, when applicable
   * Create a pull request
 
-
 ### Exercise 1
+* Import Database Schema from the following source file into ```decodemtl_addressbook```:
+  * data/import-table-structure.sql
+
+### Exercise 2
 * Insert one row into ```decodemtl_addressbook.Account```
 * Insert one row into ```decodemtl_addressbook.AddressBook```
 * Insert three rows into ```decodemtl_addressbook.Entry```
 
-### Exercise 2
+### Exercise 3
 * Retrieve data from the previously inserted ```decodemtl_addressbook.Account``` row
 * Retrieve data from the previously inserted ```decodemtl_addressbook.AddressBook``` row
 * Retrieve data from the previously inserted ```decodemtl_addressbook.Entry``` rows
 
-### Exercise 3
+### Exercise 4
 * Modify the ```decodemtl_addressbook.Account``` row
 * Modify the ```decodemtl_addressbook.AddressBook``` row
 * Modify the three ```decodemtl_addressbook.Entry``` rows using one query only
 
-### Exercise 4
+### Exercise 5
 * Delete all data from ```decodemtl_addressbook.Entry``` without using a ```DELETE``` statement
 
-### Exercise 5
+### Exercise 6
 * Delete ```decodemtl_addressbook.Account``` and all associated date
 
-### Exercise 6
-* Create database ```decodemtl_addressbook_import```
-* Bulk import data from the source files into ```decodemtl_addressbook_import```:
+### Exercise 7
+* Import Database Schema from the followinf source file into ```decodemtl_addressbook_import```:
+  * data/import-table-structure.sql
+* Bulk import data from the following source files into ```decodemtl_addressbook_import```:
   * data/import-account.sql
   * data/import-addressbook.sql
   * data/import-entry.sql
 
-### Exercise 7
+### Exercise 8
 * What is the email of the Account identified by "63"?
 * What are the names of the AdressBooks belonging to accountId "3"?
 * On which date was the AddressBook titled "Lorem Foundation" created?
 
-### Exercise 8
+### Exercise 9
 * How many Accounts exist?
 * How many Address Books exist?
 * How many Address Book Entries exist?
 
-### Exercise 9
+### Exercise 10
 * How many Address Book Entries are listed as born before February 12th of 1982?
 * How many Address Book Entries are listed as born on or after January 1st of 1965?
 * Which Address Book Entry is listed as being the oldest of age?
 
-### Exercise 10
+### Exercise 11
 * How many Address Book Entries are not listed as ```other```?
 * How many Address Book Entries are listed as either ```home``` or ```work```?
 * How many Address Book Entries are listed as ```phones```?
 
-### Exercise 11
+### Exercise 12
 * Which Account owns the most Address Books?
 * Which Address Book contains the most Entries?
 
-### Exercise 12
+### Exercise 13
 * How many Address Book Entries have phones starting with area code ```3XX```?
 * How many Address Book Entries have ```home``` phones not containing the digit ```5```?
 * How many Address Book Entries are ```work``` phones starting with a country code?
 
-### Exercise 13 (Workshop Challenge)
+### Exercise 14 (Workshop Challenge)
 * Create a data model representing a Store with Inventory, Customers and Invoices
 * This model should provide answers to the following questions:
   * What is the Store's income within a specific date range?
