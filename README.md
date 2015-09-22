@@ -29,7 +29,7 @@
 * [Group By](http://dev.mysql.com/doc/internals/en/optimizer-group-by-related-conditions.html)
 
 
-### MySQL Batch Import
+### MySQL Bulk Data Import
 ```
 # Executing Statements from an External File
 mysql> source <filename>
@@ -72,7 +72,7 @@ mysql> source <filename>
 * Delete ```decodemtl_addressbook.Account``` and all associated date
 
 ### Exercise 7
-* Import Database Schema from the followinf source file into ```decodemtl_addressbook_import```:
+* Import Database Schema from the following source file into ```decodemtl_addressbook_import```:
   * data/import-table-structure.sql
 * Bulk import data from the following source files into ```decodemtl_addressbook_import```:
   * data/import-account.sql
