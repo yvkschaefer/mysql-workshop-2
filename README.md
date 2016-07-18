@@ -97,24 +97,3 @@ mysql> source <filename>
 * How many Address Book Entries are not listed as ```other```?
 * How many Address Book Entries are listed as either ```home``` or ```work```?
 * How many Address Book Entries are listed as ```phones```?
-
-### Exercise 12
-* Which Account owns the most Address Books?
-* Which Address Book contains the most Entries?
-
-### Exercise 13
-* How many Address Book Entries have phones starting with area code ```3XX```?
-* How many Address Book Entries have ```home``` phones not containing the digit ```5```?
-* How many Address Book Entries are ```work``` phones starting with a country code?
-
-### Exercise 14 (Workshop Challenge)
-* Create a data model representing a Store with Inventory, Customers and Invoices
-* This model should provide answers to the following questions:
-  * What is the Store's income within a specific date range?
-  * What is the Store's top selling Inventory product?
-  * Which company produces the top selling Inventory product?
-  * What is the top refunded Inventory product?
-  * Which products should be taken out from the Store's Inventory?
-  * Which companies should the Store stop selling products from?
-  * What is the amount of Internal (Canadian) vs. External sales?
-  * How many of a specific product remains in Inventory for a specific date?
