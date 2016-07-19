@@ -12,23 +12,7 @@ data/import-table-structure.sql
 # Executing Statements from an External File
 mysql> source <filename>
 
-mysql> source data/import-table-structure.sql
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 1 row affected (0.00 sec)
-
-Database changed
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.08 sec)
+at first I did this wrong, I didn't create the database decodemtl_addressbook, so I had to go back.
 
 mysql> show databases;
 +------------------------------+
@@ -43,8 +27,61 @@ mysql> show databases;
 +------------------------------+
 6 rows in set (0.00 sec)
 
-mysql> \u decodemtl_addressbook_import
+mysql> create database decodemtl_addressbook;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++------------------------------+
+| Database                     |
++------------------------------+
+| information_schema           |
+| c9                           |
+| decodemtl_addressbook        |
+| decodemtl_addressbook_import |
+| mysql                        |
+| performance_schema           |
+| phpmyadmin                   |
++------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> drop database decodemtl_addressbook_import;
+Query OK, 3 rows affected (0.02 sec)
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| c9                    |
+| decodemtl_addressbook |
+| mysql                 |
+| performance_schema    |
+| phpmyadmin            |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> \u decodemtl_addressbook;
+ERROR 1049 (42000): Unknown database 'decodemtl_addressbook;'
+mysql> \u decodemtl_addressbook
 Database changed
+mysql> source data/import-table-structure.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.16 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
 mysql> show tables;
 +----------------------------------------+
 | Tables_in_decodemtl_addressbook_import |
@@ -54,23 +91,5 @@ mysql> show tables;
 | Entry                                  |
 +----------------------------------------+
 3 rows in set (0.00 sec)
-
-mysql> source data/import-table-structure.sql
-Query OK, 3 rows affected (0.01 sec)
-
-Query OK, 1 row affected (0.00 sec)
-
-Database changed
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
 
 mysql> 

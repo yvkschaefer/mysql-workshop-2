@@ -1,0 +1,127 @@
+Exercise 2
+
+Insert one row into decodemtl_addressbook.Account
+
+mysql> describe Account;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| email      | varchar(255) | NO   |     | NULL    |                |
+| password   | varchar(40)  | NO   |     | NULL    |                |
+| createdOn  | datetime     | NO   |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Account (email, password, createdOn, modifiedOn) values ('karascha@gmail.com', 'password', '2008-09-06', '2010-10-10');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Account;
++----+--------------------+----------+---------------------+---------------------+
+| id | email              | password | createdOn           | modifiedOn          |
++----+--------------------+----------+---------------------+---------------------+
+|  1 | karascha@gmail.com | password | 2008-09-06 00:00:00 | 2010-10-10 00:00:00 |
++----+--------------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+Insert one row into decodemtl_addressbook.AddressBook
+
+mysql> describe AddressBook;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| accountId  | int(11)      | NO   |     | NULL    |                |
+| name       | varchar(255) | NO   |     | NULL    |                |
+| createdOn  | datetime     | NO   |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into AddressBook (accountId, name, createdOn, modifiedOn) values ('banking', 'Credit Union', '1995-10-01', '2000-08-10');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> show warning; //I think I was supposed to write show warnings;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'warning' at line 1
+mysql> select * from AddressBook;
++----+-----------+--------------+---------------------+---------------------+
+| id | accountId | name         | createdOn           | modifiedOn          |
++----+-----------+--------------+---------------------+---------------------+
+|  1 |         0 | Credit Union | 1995-10-01 00:00:00 | 2000-08-10 00:00:00 |
++----+-----------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+
+mysql> update AddressBook set accountId=6 where accountId=0;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+-----------+--------------+---------------------+---------------------+
+| id | accountId | name         | createdOn           | modifiedOn          |
++----+-----------+--------------+---------------------+---------------------+
+|  1 |         6 | Credit Union | 1995-10-01 00:00:00 | 2000-08-10 00:00:00 |
++----+-----------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+Insert three rows into decodemtl_addressbook.Entry
+
+mysql> describe Entry;
++------------------+---------------------------------+------+-----+---------+----------------+
+| Field            | Type                            | Null | Key | Default | Extra          |
++------------------+---------------------------------+------+-----+---------+----------------+
+| id               | int(11)                         | NO   | PRI | NULL    | auto_increment |
+| addressBookId    | int(11)                         | NO   |     | NULL    |                |
+| firstName        | varchar(255)                    | NO   |     | NULL    |                |
+| birthday         | datetime                        | YES  |     | NULL    |                |
+| type             | enum('home','work','other')     | NO   |     | NULL    |                |
+| subtype          | enum('phone','address','email') | NO   |     | NULL    |                |
+| contentLineOne   | varchar(255)                    | NO   |     | NULL    |                |
+| contentLineTwo   | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineThree | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFour  | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFive  | varchar(255)                    | YES  |     | NULL    |                |
++------------------+---------------------------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> insert into Entry (addressBookId, firstName, lastName, birthday, type, subtype, contentLineOne, contentLineTwo, contentLineThree, contentLineFour, contentLineFive) values (1, 'Alfred', 'Schaefer', '1985-04-30', 'other', 'phone', '1-250-643-2593', 'cell phone', 'personal', 'Smithers', 'B.C.'), (2, 'Har
+old', 'Schaefer', '1993-04-28', 'home', 'phone', '1-250-877-0437', 'cell phone', 'personal', 'Vancouver
+', 'B.C.'), (3, 'Nelsie', 'Schaefer', '1961-11-08', 'work', 'phone', '1-250-555-2942', 'work cell', 'office', 'Houston', 'B.C.');                                                                             
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Alfred    | Schaefer | 1985-04-30 00:00:00 | other | phone   | 1-250-643-2593 | cell phone     | personal         | Smithers        | B.C.            |
+|  2 |             2 | Harold    | Schaefer | 1993-04-28 00:00:00 | home  | phone   | 1-250-877-0437 | cell phone     | personal         | Vancouver       | B.C.            |
+|  3 |             3 | Nelsie    | Schaefer | 1961-11-08 00:00:00 | work  | phone   | 1-250-555-2942 | work cell      | office           | Houston         | B.C.            |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+
+//Ziad, is there a way to widen my terminal so that I can see the information nicely?
