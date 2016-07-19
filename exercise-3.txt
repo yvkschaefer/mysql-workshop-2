@@ -1,0 +1,90 @@
+Exercise 3
+
+Retrieve data from the previously inserted decodemtl_addressbook.Account row
+
+mysql> show databases;
++------------------------------+
+| Database                     |
++------------------------------+
+| information_schema           |
+| c9                           |
+| decodemtl_addressbook        |
+| decodemtl_addressbook_import |
+| mysql                        |
+| performance_schema           |
+| phpmyadmin                   |
++------------------------------+
+7 rows in set (0.01 sec)
+
+mysql> \u decodemtl_addressbook
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+//why are my tables not in decodemtl_addressbook when I was in that database when I edited all the tables? Line 63 of exercise-1.txt
+
+mysql> \u decodemtl_addressbook_import
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------------------------------+
+| Tables_in_decodemtl_addressbook_import |
++----------------------------------------+
+| Account                                |
+| AddressBook                            |
+| Entry                                  |
++----------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Account;
++----+--------------------+----------+---------------------+---------------------+
+| id | email              | password | createdOn           | modifiedOn          |
++----+--------------------+----------+---------------------+---------------------+
+|  1 | karascha@gmail.com | password | 2008-09-06 00:00:00 | 2010-10-10 00:00:00 |
++----+--------------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+Retrieve data from the previously inserted decodemtl_addressbook.AddressBook row
+
+mysql> select * from AddressBook;
++----+-----------+--------------+---------------------+---------------------+
+| id | accountId | name         | createdOn           | modifiedOn          |
++----+-----------+--------------+---------------------+---------------------+
+|  1 |         6 | Credit Union | 1995-10-01 00:00:00 | 2000-08-10 00:00:00 |
++----+-----------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+Retrieve data from the previously inserted decodemtl_addressbook.Entry rows
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Alfred    | Schaefer | 1985-04-30 00:00:00 | other | phone   | 1-250-643-2593 | cell phone     | personal         | Smithers        | B.C.            |
+|  2 |             2 | Harold    | Schaefer | 1993-04-28 00:00:00 | home  | phone   | 1-250-877-0437 | cell phone     | personal         | Vancouver       | B.C.            |
+|  3 |             3 | Nelsie    | Schaefer | 1961-11-08 00:00:00 | work  | phone   | 1-250-555-2942 | work cell      | office           | Houston         | B.C.            |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> 
