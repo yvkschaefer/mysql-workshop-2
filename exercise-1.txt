@@ -1,0 +1,76 @@
+For every exercise in this Workshop:
+Create a new file named "exercise-n.txt", containing:
+The SQL Statement used, when applicable
+The SQL Statement results, when applicable
+After the first exercise you commit, do a pull request from your master branch. Then, commit and 
+push after each exercise so that we can see your progress.
+
+Exercise 1
+Import Database Schema from the following source file into decodemtl_addressbook:
+data/import-table-structure.sql
+
+# Executing Statements from an External File
+mysql> source <filename>
+
+mysql> source data/import-table-structure.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show databases;
++------------------------------+
+| Database                     |
++------------------------------+
+| information_schema           |
+| c9                           |
+| decodemtl_addressbook_import |
+| mysql                        |
+| performance_schema           |
+| phpmyadmin                   |
++------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> \u decodemtl_addressbook_import
+Database changed
+mysql> show tables;
++----------------------------------------+
+| Tables_in_decodemtl_addressbook_import |
++----------------------------------------+
+| Account                                |
+| AddressBook                            |
+| Entry                                  |
++----------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> source data/import-table-structure.sql
+Query OK, 3 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
