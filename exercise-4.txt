@@ -1,0 +1,99 @@
+Exercise 4
+
+Modify the decodemtl_addressbook.Account row
+
+mysql> select * from Account;
++----+--------------------+----------+---------------------+---------------------+
+| id | email              | password | createdOn           | modifiedOn          |
++----+--------------------+----------+---------------------+---------------------+
+|  1 | karascha@gmail.com | password | 2008-09-06 00:00:00 | 2010-10-10 00:00:00 |
++----+--------------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> update Account set password='se7enteen' where password='password';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Account;
++----+--------------------+-----------+---------------------+---------------------+
+| id | email              | password  | createdOn           | modifiedOn          |
++----+--------------------+-----------+---------------------+---------------------+
+|  1 | karascha@gmail.com | se7enteen | 2008-09-06 00:00:00 | 2010-10-10 00:00:00 |
++----+--------------------+-----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+Modify the decodemtl_addressbook.AddressBook row
+
+mysql> select * from AddressBook;
++----+-----------+--------------+---------------------+---------------------+
+| id | accountId | name         | createdOn           | modifiedOn          |
++----+-----------+--------------+---------------------+---------------------+
+|  1 |         6 | Credit Union | 1995-10-01 00:00:00 | 2000-08-10 00:00:00 |
++----+-----------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+
+mysql> update AddressBook set accountId=4 where accountId=6;                                           
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+-----------+--------------+---------------------+---------------------+
+| id | accountId | name         | createdOn           | modifiedOn          |
++----+-----------+--------------+---------------------+---------------------+
+|  1 |         4 | Credit Union | 1995-10-01 00:00:00 | 2000-08-10 00:00:00 |
++----+-----------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+Modify the three decodemtl_addressbook.Entry rows using one query only
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Alfred    | Schaefer | 1985-04-30 00:00:00 | other | phone   | 1-250-643-2593 | cell phone     | personal         | Smithers        | B.C.            |
+|  2 |             2 | Harold    | Schaefer | 1993-04-28 00:00:00 | home  | phone   | 1-250-877-0437 | cell phone     | personal         | Vancouver       | B.C.            |
+|  3 |             3 | Nelsie    | Schaefer | 1961-11-08 00:00:00 | work  | phone   | 1-250-555-2942 | work cell      | office           | Houston         | B.C.            |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+
+mysql> update Entry set addressBookId=4 where addressBookId=1 and update Entry set addressBookId=5 where addressBookId=2 and update Entry set addressBookId=6 where addressBookId=3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'update Entry set addressBookId=5 where addressBookId=2 and update Entry set addr' at line 1
+
+mysql> update Entry set addressBookId=4 where addressBookId=1 and set addressBookId=5 where addressBookId=2 and set address
+BookId=6 where addressBookId=3;                                                                                            
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set addressBookId=5 where addressBookId=2 and set addressBookId=6 where addressB' at line 1
+
+mysql> update Entry set addressBookId=4 where addressBookId=1 and addressBookId=5 where addressBookId=2 and addressBookId=6
+ where addressBookId=3;                                                                                                    
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where addressBookId=2 and addressBookId=6 where addressBookId=3' at line 1
+
+
+mysql> update Entry set addressBookId=4 where addressBookId>0;
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             4 | Alfred    | Schaefer | 1985-04-30 00:00:00 | other | phone   | 1-250-643-2593 | cell phone     | personal         | Smithers        | B.C.            |
+|  2 |             4 | Harold    | Schaefer | 1993-04-28 00:00:00 | home  | phone   | 1-250-877-0437 | cell phone     | personal         | Vancouver       | B.C.            |
+|  3 |             4 | Nelsie    | Schaefer | 1961-11-08 00:00:00 | work  | phone   | 1-250-555-2942 | work cell      | office           | Houston         | B.C.            |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> 
