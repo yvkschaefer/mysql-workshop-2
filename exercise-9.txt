@@ -12,26 +12,23 @@ mysql> select count(*) from Account;
 
 
 
-How many Address Books exist? //might be wrong. revisit this when Codrin is free.
-
-1
-
-mysql> show tables;
-+----------------------------------------+
-| Tables_in_decodemtl_addressbook_import |
-+----------------------------------------+
-| Account                                |
-| AddressBook                            |
-| Entry                                  |
-+----------------------------------------+
-
-
-How many Address Book Entries exist?
+How many Address Books exist? 
 
 mysql> select count(*) from AddressBook;
 +----------+
 | count(*) |
 +----------+
 |     1100 |
++----------+
+1 row in set (0.00 sec)
+
+
+How many Address Book Entries exist?
+
+mysql> select count(*) from Entry;
++----------+
+| count(*) |
++----------+
+|     4000 |
 +----------+
 1 row in set (0.00 sec)
