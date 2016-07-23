@@ -1,0 +1,99 @@
+Exercise 1
+
+Which Account owns the most Address Books?
+Answer: Entry table
+
+mysql> select count(*) from AddressBook where id > 0;
++----------+
+| count(*) |
++----------+
+|     1100 |
++----------+
+1 row in set (0.01 sec)
+
+
+mysql> select count(*) from Entry where addressBookId > 0;
++----------+
+| count(*) |
++----------+
+|     4000 |
++----------+
+1 row in set (0.00 sec)
+
+
+
+
+Which Address Book contains the most Entries?
+Answer: Entry Table.
+
+mysql> show tables;
++----------------------------------------+
+| Tables_in_decodemtl_addressbook_import |
++----------------------------------------+
+| Account                                |
+| AddressBook                            |
+| Entry                                  |
++----------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select count(*) from Account;
++----------+
+| count(*) |
++----------+
+|     1000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from AddressBook;
++----------+
+| count(*) |
++----------+
+|     1100 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from Entry;
++----------+
+| count(*) |
++----------+
+|     4000 |
++----------+
+1 row in set (0.00 sec)
+
+
+
+
+Exercise 2
+
+How many Address Book Entries have phones starting with area code 3XX?
+
+mysql> SELECT COUNT(*) FROM Entry WHERE contentLineOne LIKE '(3%';
++----------+
+| COUNT(*) |
++----------+
+|       39 |
++----------+
+1 row in set (0.00 sec)
+
+
+
+How many Address Book Entries have home phones not containing the digit 5?
+
+mysql> SELECT COUNT(*) FROM Entry WHERE type='home' AND subtype='phone' AND contentLineOne NOT LIKE '%5%';                 
++----------+
+| COUNT(*) |
++----------+
+|       76 |
++----------+
+1 row in set (0.00 sec)
+
+
+How many Address Book Entries are work phones starting with a country code?
+
+mysql> SELECT COUNT(*) FROM Entry WHERE type='work' AND subtype='phone' AND contentLineOne NOT LIKE '(%';                  
++----------+
+| COUNT(*) |
++----------+
+|       60 |
++----------+
+1 row in set (0.00 sec)
